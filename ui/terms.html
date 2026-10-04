@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms and Conditions - MediTrack Healthcare Information System</title>
+  <link rel="stylesheet" href="website.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Official Notice Bar -->
+  <div class="gov-banner">
+    <div class="container gov-banner-inner">
+      <span>Aarogya Healthcare Enterprise Clinical Information Systems</span>
+      <span class="gov-tag">Operational Mandate: Medical Liability and Legal Admissibility</span>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-wrapper">
+        <div class="brand-mark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <span class="brand-name">MediTrack</span>
+          <span class="brand-sub">Aarogya Healthcare</span>
+        </div>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">System Overview</a>
+        <a href="index.html#safety">Clinical Safety</a>
+        <a href="index.html#architecture">Architecture</a>
+        <a href="index.html#migration">Migration Strategy</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html" class="active">Terms & Conditions</a>
+        <a href="clinical-portal.html" class="btn btn-primary" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;">Clinical Portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Terms and Conditions Content -->
+  <main class="container legal-layout">
+    <header class="legal-header">
+      <span class="meta-badge">Clinical Governance & Enterprise Terms</span>
+      <h1>Terms and Conditions of System Access & Clinical Use</h1>
+      <p class="legal-meta">Document Reference: AH-LEGAL-TOS-2026-V1.0 | Effective Date: October 2, 2026 | Authority: Chief Medical Officer & Legal Counsel</p>
+    </header>
+
+    <div class="legal-body">
+      <section>
+        <h2>1. Scope of Agreement and User Acceptance</h2>
+        <p>
+          These Terms and Conditions constitute a binding operational agreement governing all authorized users who access, operate, review, or input clinical and administrative data into the MediTrack Electronic Medical Record (EMR) system across the 27 healthcare facilities of Aarogya Healthcare (including 6 hospitals and 21 clinics located in three states).
+        </p>
+        <p>
+          Access to MediTrack is restricted exclusively to authenticated medical, nursing, pharmaceutical, laboratory, and health records personnel credentialed by the Medical Superintendent of each respective facility. By logging into the platform or using any connected terminal, each user explicitly acknowledges and agrees to these terms.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Authorized Clinical Credentials and Authentication Rules</h2>
+        <p>
+          To maintain zero-trust security and prevent unauthorized access to sensitive patient health records:
+        </p>
+        <ul>
+          <li><strong>Individualized Identity:</strong> Every user must authenticate using their uniquely assigned Enterprise Directory credentials and mandatory Multi-Factor Authentication (MFA). Sharing accounts, utilizing generic department logins, or operating terminals under another staff member's active session is strictly prohibited and constitutes grounds for disciplinary termination and medical board reporting.</li>
+          <li><strong>Automatic Session Expiry:</strong> All unattended clinical terminals automatically lock after 5 minutes of inactivity to safeguard patient privacy in ward and outpatient settings.</li>
+          <li><strong>Revocation of Credentials:</strong> The system automatically suspends access credentials upon notice of employee resignation, clinical privilege suspension, or failure to complete annual clinical information governance refresher training.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Clinical Decision Support and Professional Accountability</h2>
+        <p>
+          The Computerized Physician Order Entry (CPOE) and Drug-Allergy Safety Engine implemented in MediTrack are engineered as clinical safety interlocks to intercept adverse drug events (such as the 310 allergy prescribing incidents recorded across legacy facilities in 2024):
+        </p>
+        <ul>
+          <li><strong>Non-Substitution for Clinical Judgment:</strong> While MediTrack automatically intercepts contraindicated medications and chemical cross-sensitivities (including Beta-Lactam ring interactions), automated alerts do not replace the treating physician's primary legal duty of care and independent diagnostic evaluation.</li>
+          <li><strong>Clinical Override Protocol:</strong> In emergency situations where clinical necessity warrants an override of an amber drug warning, the attending physician must enter a structured, justifiable clinical rationale. Overrides are recorded permanently in the non-repudiable audit ledger.</li>
+          <li><strong>Hard Stop Interlocks:</strong> Severe contraindications (such as verified historical anaphylaxis to a prescribed drug) trigger an automated Hard Stop that cannot be overridden through routine software workflows, requiring formal clinical consultation or alternative drug selection.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Prohibition of Silent Record Tampering and Legal Non-Repudiation</h2>
+        <p>
+          Under the Indian Evidence Act, medical records are legal evidentiary documents subject to court inspection:
+        </p>
+        <ul>
+          <li><strong>Physical Deletion Prohibited:</strong> No user, system administrator, or database engineer possesses the authorization or software capability to physically delete or silently overwrite clinical entries, nursing notes, laboratory results, or prescription orders once committed.</li>
+          <li><strong>Append-Only Addendum Requirement:</strong> Corrections, diagnostic clarifications, or revised clinical impressions must be entered as signed addendums with explicit timestamps, preserving the original unedited entry in full.</li>
+          <li><strong>Cryptographic Audit Trails:</strong> Every user action (including record viewing, search queries, prescription signing, and emergency overrides) is cryptographically linked using SHA-256 hashes into an immutable tamper-evident ledger. Alteration of historical logs breaks the cryptographic chain, providing forensic non-repudiation.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Legacy Record Quarantine and Clinical Caution</h2>
+        <p>
+          Authorized personnel interacting with records migrated from legacy Microsoft FoxPro, spreadsheet, or physical ledger sources must observe the following data safety rules:
+        </p>
+        <ul>
+          <li><strong>Quarantine Queue Isolation:</strong> The 168,000 legacy records (7% of enterprise legacy volume) containing malformed dates or colliding identity numbers are held in an isolated quarantine schema pending human custodian reconciliation.</li>
+          <li><strong>Active Clinical Duty:</strong> When an inpatient or outpatient is identified with a quarantined legacy record, the treating physician and ward nurse have an affirmative duty to conduct a primary bedside allergy inquiry and document verified allergy status prior to issuing electronic orders.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. System Availability and Downtime Protocols</h2>
+        <p>
+          MediTrack is architected to achieve a high availability threshold of 99.857%, representing a Mean Time Between Failures (MTBF) of 1,400 hours and a Mean Time to Repair (MTTR) of 2.0 hours. In the event of scheduled maintenance or unexpected hardware failover:
+        </p>
+        <ul>
+          <li>All clinical departments must immediately initiate standard downtime operating procedures using local read-only emergency cache terminals and physical duplicate prescription pads.</li>
+          <li>Loose coupling between the Prescription Module and external billing services ensures clinical prescribing is never halted due to financial accounting or insurance gateway downtime.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>7. Academic Attribution and Non-Production Scope Disclaimer</h2>
+        <p>
+          In direct compliance with academic guidelines for Software Engineering & Project Management (B.Tech CSE Semester III, School of Future Tech, ITM Skills University):
+        </p>
+        <p>
+          <em>"This software represents an academic Software Engineering and Project Management specification, architectural prototype, and UI representation for MediTrack Case Study No. 1. It is designed to demonstrate formal software engineering rigor, mathematical cost estimation (Basic COCOMO), critical path scheduling, and regulatory verification. It does not constitute a production hospital deployment."</em>
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Contact and Administrative Governance</h2>
+        <p>
+          Inquiries regarding clinical information governance, credential authorization, or institutional compliance should be directed to the Office of the Chief Medical Officer, Aarogya Healthcare System, or transmitted to <code>clinicalgovernance@aarogyahealthcare.org</code>.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>MediTrack Clinical EMR</h4>
+          <p style="color: #94a3b8; font-size: 0.875rem;">
+            Centralized Electronic Medical Record platform for Aarogya Healthcare. Serving 6 tertiary hospitals and 21 outpatient clinics across 3 states with standardized safety interlocks.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Documentation</h4>
+          <ul>
+            <li><a href="index.html#specifications">IEEE 830 Specifications</a></li>
+            <li><a href="index.html#architecture">N-Tier Architecture</a></li>
+            <li><a href="index.html#safety">14-Rule Decision Table</a></li>
+            <li><a href="index.html#migration">12-Stage ETL Migration</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Clinical Portal</h4>
+          <ul>
+            <li><a href="clinical-portal.html">Main Clinical Dashboard</a></li>
+            <li><a href="clinical-portal.html#view-prescription">CPOE E-Prescription</a></li>
+            <li><a href="clinical-portal.html#view-allergy-check">Allergy Interlock Demo</a></li>
+            <li><a href="clinical-portal.html#view-audit">Cryptographic Audit Log</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Governance & Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="index.html#quality">Quality Assurance Metrics</a></li>
+            <li><a href="index.html#governance">Statutory Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Aarogya Healthcare System. All rights reserved. SEPM Academic Deliverable.</span>
+        <span>Standard: IEEE Std 830-1998, ISO/IEC 12207, DPDPA 2023.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

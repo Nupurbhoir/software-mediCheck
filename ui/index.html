@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediTrack Enterprise Health Information System: Aarogya Healthcare</title>
+  <link rel="stylesheet" href="meditrack.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar">
+      <div class="sidebar-header">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>MediTrack</h1>
+          <span>Aarogya Healthcare</span>
+        </div>
+      </div>
+
+      <div class="facility-selector-wrapper">
+        <label class="facility-selector-label" for="facilitySelect">Connected Healthcare Facility</label>
+        <select id="facilitySelect" class="facility-select">
+          <option value="Hospital #01 (Mumbai Central Hub)">Hospital #01 (Mumbai Central Hub)</option>
+          <option value="Hospital #02 (Pune Tertiary Center)">Hospital #02 (Pune Tertiary Center)</option>
+          <option value="Hospital #03 (Nagpur Super-Speciality)">Hospital #03 (Nagpur Super-Speciality)</option>
+          <option value="Clinic #04 (Nashik Community Center)">Clinic #04 (Nashik Community Center)</option>
+          <option value="Clinic #14 (Satara Primary Clinic)">Clinic #14 (Satara Primary Clinic)</option>
+          <option value="Clinic #21 (Solapur Rural Clinic)">Clinic #21 (Solapur Rural Clinic)</option>
+        </select>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-group-title">Clinical Core</div>
+        <a class="nav-link active" data-target="view-dashboard">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+          Main Dashboard
+        </a>
+        <a class="nav-link" data-target="view-patients">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          Patient Directory &amp; History
+        </a>
+        <a class="nav-link" data-target="view-patient-reg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+          Patient Registration
+        </a>
+        <a class="nav-link" data-target="view-opd">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          OPD Clinical Notes (SOAP)
+        </a>
+        <a class="nav-link" data-target="view-prescription">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5l10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+          CPOE Prescribing
+          <span class="nav-tag nav-tag-critical">Allergy Gate</span>
+        </a>
+        <a class="nav-link" data-target="view-ipd">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"></path><path d="M2 8h18a2 2 0 0 1 2 2v10"></path><path d="M2 17h20"></path><path d="M6 8v9"></path></svg>
+          Inpatient Bed Census
+        </a>
+        <a class="nav-link" data-target="view-lab">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h12"></path><path d="M10 2v6.5a4.5 4.5 0 0 1-1.3 3.2L4 18"></path><path d="M14 2v6.5a4.5 4.5 0 0 0 1.3 3.2L20 18"></path></svg>
+          Laboratory (LIS)
+        </a>
+        <a class="nav-link" data-target="view-pharmacy">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          Pharmacy Dispensing
+        </a>
+        <a class="nav-link" data-target="view-discharge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          Discharge Summary
+        </a>
+
+        <div class="nav-group-title">Governance &amp; Operations</div>
+        <a class="nav-link" data-target="view-audit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Chained Audit Ledger
+        </a>
+        <a class="nav-link" data-target="view-migration">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          2.4M Legacy Migration
+          <span class="nav-tag nav-tag-info">7% Quarantine</span>
+        </a>
+        <a class="nav-link" data-target="view-risk-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          Risk &amp; Safety Center
+        </a>
+        <a class="nav-link" data-target="view-account">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          User Account Profile
+        </a>
+
+        <div class="nav-group-title">Engineering Deliverables</div>
+        <a class="nav-link" data-target="view-docs">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+          Deliverables &amp; Documents Hub
+        </a>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="user-avatar" id="sidebarAvatar">PS</div>
+        <div class="user-info">
+          <div class="user-name" id="sidebarUserName">Dr. Priya Sharma</div>
+          <div class="user-role" id="sidebarUserRole">Attending Physician</div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="switchTab('view-account')" title="Account Profile" style="padding: 0.25rem 0.45rem;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+        <button class="btn btn-secondary btn-sm" onclick="userLogout()" title="Sign Out" style="padding: 0.25rem 0.45rem;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Application Shell -->
+    <main class="app-main">
+
+      <!-- Header Bar -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="screen-title" id="currentHeaderTitle">Enterprise Clinical Dashboard</div>
+          <span class="header-badge" id="activeFacilityTag">Hospital #01 (Mumbai Central Hub)</span>
+          <span class="header-badge" style="color:var(--color-success); border-color:var(--color-success-border); background-color:var(--color-success-bg);">
+            Availability: 99.857% (MTBF 1,400h)
+          </span>
+        </div>
+        <div class="header-right">
+          <button class="btn btn-secondary btn-sm" onclick="switchTab('view-docs')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Case Study Docs
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="switchTab('view-account')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span id="headerUserName">Dr. Priya Sharma</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Scrollable Workspace -->
+      <div class="app-content" id="mainScrollContainer">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: MAIN DASHBOARD                     -->
+        <!-- ========================================== -->
+        <section id="view-dashboard" class="content-view active">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Aarogya Healthcare Network Overview</h2>
+              <p class="view-subheading">Centralized operations across 6 tertiary hospitals and 21 clinics in 3 states.</p>
+            </div>
+            <div style="display:flex; gap:0.5rem;">
+              <button class="btn btn-secondary btn-sm" onclick="switchTab('view-patient-reg')">+ Register Patient</button>
+              <button class="btn btn-primary btn-sm" onclick="switchTab('view-prescription')">Open CPOE Prescribing</button>
+            </div>
+          </div>
+
+          <!-- Alert for the 310 Prescribing Incidents -->
+          <div class="alert-banner alert-banner-danger">
+            <div>
+              <div class="alert-banner-title">Historical Clinical Hazard Precedent: 310 Allergy Incidents in 2024</div>
+              <div>
+                In 2024, the enterprise recorded 310 prescribing events traced to missing allergy history during inter-facility transit. MediTrack provides mandatory allergy recording, global synchronization across all 27 sites, and a 14-rule deterministic Hard Stop interlock.
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI Cards Grid -->
+          <div class="grid-cards">
+            <div class="metric-card">
+              <div class="metric-label">Legacy Migrated Records</div>
+              <div class="metric-val">2,400,000</div>
+              <div class="metric-detail">Consolidated from FoxPro, Excel &amp; Paper</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Quarantined Records (7%)</div>
+              <div class="metric-val" style="color:var(--color-danger);" id="quarantinePendingCounter">168,000</div>
+              <div class="metric-detail">Malformed dates &amp; colliding IDs isolated</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Defect Removal Efficiency</div>
+              <div class="metric-val" style="color:var(--color-success);">93.88%</div>
+              <div class="metric-detail">Exceeds faculty target (DRE &gt;= 92.0%)</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Operational Reliability</div>
+              <div class="metric-val">MTBF 1,400h</div>
+              <div class="metric-detail">MTTR = 2.0h | Availability: 99.857%</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="card" style="margin-bottom:0;">
+              <div class="card-header-bar">
+                <span class="card-title">Hospital Bed Occupancy by Unit</span>
+                <span class="badge badge-neutral">Hospital #01 Mumbai</span>
+              </div>
+              <div class="table-container" style="margin-bottom:0;">
+                <table class="ui-table">
+                  <thead>
+                    <tr><th>Ward / Department</th><th>Total Beds</th><th>Occupied</th><th>Available</th><th>Status</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Intensive Care Unit (ICU)</td><td>24</td><td>22</td><td>2</td><td><span class="badge badge-danger">91.6% High</span></td></tr>
+                    <tr><td>Cardiology Ward A</td><td>40</td><td>34</td><td>6</td><td><span class="badge badge-warning">85.0% Moderate</span></td></tr>
+                    <tr><td>General Surgery Ward B</td><td>60</td><td>42</td><td>18</td><td><span class="badge badge-success">70.0% Normal</span></td></tr>
+                    <tr><td>Emergency Observation</td><td>16</td><td>14</td><td>2</td><td><span class="badge badge-danger">87.5% Critical</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card" style="margin-bottom:0;">
+              <div class="card-header-bar">
+                <span class="card-title">Recent Critical Safety Interceptions</span>
+                <span class="badge badge-danger">Automated Safety Gate</span>
+              </div>
+              <div class="table-container" style="margin-bottom:0;">
+                <table class="ui-table">
+                  <thead>
+                    <tr><th>Time</th><th>Patient UHID</th><th>Prescribed Drug</th><th>Safety Action</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>10:14 UTC</td><td>AH-2026-0982</td><td>Amoxicillin 500mg IV</td><td><span class="badge badge-danger">HARD STOP: Penicillin Allergy</span></td></tr>
+                    <tr><td>09:42 UTC</td><td>AH-2026-1402</td><td>Cefazolin 1g IV</td><td><span class="badge badge-warning">Cross-Reactivity Alert</span></td></tr>
+                    <tr><td>08:15 UTC</td><td>AH-2026-8812</td><td>Gentamicin 80mg</td><td><span class="badge badge-warning">Renal Clearance Override</span></td></tr>
+                    <tr><td>07:30 UTC</td><td>AH-2026-0199</td><td>Diclofenac 50mg</td><td><span class="badge badge-danger">HARD STOP: NSAID Asthmatic</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: PATIENT DIRECTORY & HISTORY        -->
+        <!-- ========================================== -->
+        <section id="view-patients" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Master Patient Directory &amp; Longitudinal History</h2>
+              <p class="view-subheading">Centralized records replacing physical paper folders carried during inter-facility transit.</p>
+            </div>
+            <div style="width:320px;">
+              <input type="text" id="patientSearchInput" class="form-control" placeholder="Search by UHID, Patient Name, or Mobile...">
+            </div>
+          </div>
+
+          <!-- Active Patient Context Banner -->
+          <div class="patient-active-banner">
+            <div class="patient-identity">
+              <div>
+                <span class="patient-name" id="activePatientName">Rajesh Kumar</span>
+                <span style="font-size:0.75rem; color:var(--color-text-muted); margin-left:0.5rem;" id="activePatientAge">48 Y / Male</span>
+              </div>
+              <div class="patient-meta-item">UHID: <strong id="activePatientUhid">AH-2026-0982</strong></div>
+              <div class="patient-meta-item">Diagnosis: <strong id="activePatientDiag">Acute Coronary Syndrome &amp; Aspiration Risk</strong></div>
+            </div>
+            <div>
+              <span class="badge badge-danger" id="activePatientAllergy">ALLERGY: Penicillin (Anaphylaxis)</span>
+              <button class="btn btn-primary btn-sm" onclick="switchTab('view-prescription')" style="margin-left:0.5rem;">Prescribe for Patient</button>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <!-- Patient Table -->
+            <div class="card" style="flex:1.2;">
+              <div class="card-title" style="margin-bottom:0.75rem;">Enterprise Directory (27 Facilities)</div>
+              <div class="table-container">
+                <table class="ui-table">
+                  <thead>
+                    <tr><th>UHID</th><th>Patient Name</th><th>Age/Sex</th><th>Allergy Profile</th><th>Registered Facility</th><th>Status</th><th>Actions</th></tr>
+                  </thead>
+                  <tbody id="patientTableBody">
+                    <tr>
+                      <td><strong>AH-2026-0982</strong></td>
+                      <td>Rajesh Kumar</td>
+                      <td>48 Y / Male</td>
+                      <td><span class="badge badge-danger">Penicillin (Anaphylaxis)</span></td>
+                      <td>Hospital #01 (Mumbai)</td>
+                      <td><span class="badge badge-danger">ICU Bed 04</span></td>
+                      <td><button class="btn btn-secondary btn-sm" onclick="selectPatient('AH-2026-0982', 'Rajesh Kumar', '48', 'Male', 'Penicillin (Anaphylaxis)', 'Acute Coronary Syndrome')">Open Chart</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>AH-2026-0412</strong></td>
+                      <td>Sunita Rao</td>
+                      <td>36 Y / Female</td>
+                      <td><span class="badge badge-success">NKDA (Verified)</span></td>
+                      <td>Clinic #14 (Satara)</td>
+                      <td><span class="badge badge-neutral">Outpatient</span></td>
+                      <td><button class="btn btn-secondary btn-sm" onclick="selectPatient('AH-2026-0412', 'Sunita Rao', '36', 'Female', 'NKDA (Verified)', 'Type 2 Diabetes Review')">Open Chart</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>AH-2026-1184</strong></td>
+                      <td>Amit Patel</td>
+                      <td>54 Y / Male</td>
+                      <td><span class="badge badge-warning">Sulfa Drugs (Rash)</span></td>
+                      <td>Hospital #02 (Pune)</td>
+                      <td><span class="badge badge-warning">Ward 3 Bed 12</span></td>
+                      <td><button class="btn btn-secondary btn-sm" onclick="selectPatient('AH-2026-1184', 'Amit Patel', '54', 'Male', 'Sulfa Drugs (Rash)', 'Post-Appendectomy Recovery')">Open Chart</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>AH-2026-3391</strong></td>
+                      <td>Vikram Singh</td>
+                      <td>62 Y / Male</td>
+                      <td><span class="badge badge-danger">Aspirin (Bronchospasm)</span></td>
+                      <td>Clinic #04 (Nashik)</td>
+                      <td><span class="badge badge-neutral">Outpatient</span></td>
+                      <td><button class="btn btn-secondary btn-sm" onclick="selectPatient('AH-2026-3391', 'Vikram Singh', '62', 'Male', 'Aspirin (Bronchospasm)', 'Hypertension Management')">Open Chart</button></td>
+                    </tr>
+                    <tr>
+                      <td><strong>AH-2026-5502</strong></td>
+                      <td>Meera Nair</td>
+                      <td>29 Y / Female</td>
+                      <td><span class="badge badge-success">NKDA (Verified)</span></td>
+                      <td>Hospital #01 (Mumbai)</td>
+                      <td><span class="badge badge-neutral">Antenatal OPD</span></td>
+                      <td><button class="btn btn-secondary btn-sm" onclick="selectPatient('AH-2026-5502', 'Meera Nair', '29', 'Female', 'NKDA (Verified)', 'Antenatal Check 2nd Trimester')">Open Chart</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Longitudinal Medical History Timeline -->
+            <div class="card" style="flex:0.8;">
+              <div class="card-title" style="margin-bottom:0.75rem;">Longitudinal History Timeline (Rajesh Kumar)</div>
+              <div class="timeline" id="patientEncounterTimeline">
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-date">2026-10-02 (Today 08:30) - Hospital #01 Emergency</div>
+                  <div class="timeline-title">Emergency Admission: Acute Chest Pain</div>
+                  <div class="timeline-body">Troponin I elevated. Admitted to ICU Bed 04. Penicillin allergy confirmed from Clinic #14 records.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-date">2025-08-14 - Clinic #14 Satara (Outpatient)</div>
+                  <div class="timeline-title">Severe Allergic Reaction Recorded</div>
+                  <div class="timeline-body">Patient administered Amoxicillin; developed acute facial edema and respiratory distress. Treated with Epinephrine. Allergen logged: <strong>Penicillin - Reaction: Anaphylaxis</strong>.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-date">2024-03-10 - Hospital #02 Pune (Inpatient)</div>
+                  <div class="timeline-title">Laparoscopic Cholecystectomy</div>
+                  <div class="timeline-body">Discharged stable after 3 days. Routine postoperative analgesia prescribed.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: PATIENT REGISTRATION               -->
+        <!-- ========================================== -->
+        <section id="view-patient-reg" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">New Patient Registration &amp; Master Indexing</h2>
+              <p class="view-subheading">Mandatory allergy verification gate enforced at registration in compliance with CMO safety protocol.</p>
+            </div>
+          </div>
+
+          <div class="card" style="max-width:800px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="regFirstName">First Name *</label>
+                <input type="text" id="regFirstName" class="form-control" placeholder="e.g. Anand">
+              </div>
+              <div class="form-group">
+                <label for="regLastName">Last Name *</label>
+                <input type="text" id="regLastName" class="form-control" placeholder="e.g. Kulkarni">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="regDob">Date of Birth (ISO 8601) *</label>
+                <input type="date" id="regDob" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="regGender">Biological Sex *</label>
+                <select id="regGender" class="form-control">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="regMobile">Mobile Number</label>
+                <input type="tel" id="regMobile" class="form-control" placeholder="+91 98200 12345">
+              </div>
+            </div>
+
+            <!-- Mandatory Allergy Elicitation Section -->
+            <div style="background-color:var(--color-bg-page); border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:1rem; margin-bottom:1rem;">
+              <div style="font-weight:700; color:var(--color-primary); margin-bottom:0.35rem;">
+                Mandatory Clinical Safety Check: Drug Allergy Declaration
+              </div>
+              <p style="font-size:0.775rem; margin-bottom:0.75rem;">
+                Registration staff must ask patient directly: &quot;Have you ever had an allergic reaction, swelling, rash, or breathing difficulty after taking any antibiotic or medicine?&quot;
+              </p>
+              <div class="form-group" style="margin-bottom:0.75rem;">
+                <label for="regAllergyStatus">Allergy Status *</label>
+                <select id="regAllergyStatus" class="form-control" onchange="handleAllergyStatusChange()">
+                  <option value="nkda">No Known Drug Allergies (NKDA) - Verified</option>
+                  <option value="allergic">Patient Reports Known Drug Allergy</option>
+                </select>
+              </div>
+              <div class="form-group" id="regSpecificAllergenGroup" style="display:none;">
+                <label for="regSpecificAllergen">Specific Allergen Substance &amp; Severity *</label>
+                <input type="text" id="regSpecificAllergen" class="form-control" placeholder="e.g. Penicillin - Reaction: Anaphylaxis / Swelling">
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+              <button class="btn btn-secondary" onclick="switchTab('view-patients')">Cancel</button>
+              <button class="btn btn-primary" onclick="submitPatientRegistration()">Complete Registration &amp; Assign UHID</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 4: OPD CLINICAL NOTES (SOAP)          -->
+        <!-- ========================================== -->
+        <section id="view-opd" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Outpatient Clinical Consultation (SOAP Protocol)</h2>
+              <p class="view-subheading">Signed electronic encounter documentation satisfying legal medical admissibility standards.</p>
+            </div>
+            <span class="badge badge-neutral">Consulting: Rajesh Kumar (AH-2026-0982)</span>
+          </div>
+
+          <div class="card" style="max-width:900px;">
+            <div class="form-group" style="margin-bottom:1rem;">
+              <label for="soapSubjective">Subjective (Chief Complaint &amp; Patient History) *</label>
+              <textarea id="soapSubjective" class="form-control" placeholder="Patient presents with acute substernal chest discomfort radiating to left arm. Onset 2 hours ago. Dyspnea on minimal exertion. Reports known Penicillin allergy."></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom:1rem;">
+              <label for="soapObjective">Objective (Vital Signs &amp; Physical Examination)</label>
+              <textarea id="soapObjective" class="form-control" placeholder="BP: 144/92 mmHg | HR: 88 bpm | SpO2: 97% on room air | Temp: 36.8 C. Cardiovascular: S1 S2 heard, no murmurs. Lungs: Clear bilaterally, no crepitations."></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom:1rem;">
+              <label for="soapAssessment">Assessment (Clinical Impression &amp; ICD-10 Diagnosis) *</label>
+              <input type="text" id="soapAssessment" class="form-control" value="I20.0 - Unstable Angina / Acute Coronary Syndrome (Rule Out NSTEMI)">
+            </div>
+
+            <div class="form-group" style="margin-bottom:1.25rem;">
+              <label for="soapPlan">Plan (Investigations &amp; Treatment Directives)</label>
+              <textarea id="soapPlan" class="form-control" placeholder="1. Stat 12-lead ECG. 2. Serial Troponin I at 0 and 3 hours. 3. Transfer to Emergency Observation Unit. 4. CPOE prescription for anti-ischemic regimen (Avoid Beta-Lactam antibiotics)."></textarea>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:0.775rem; color:var(--color-text-muted);">
+                Author: <strong>Dr. Priya Sharma (MH-MED-2018-0914)</strong> | Legally Admissible Signature
+              </span>
+              <button class="btn btn-primary" onclick="saveSoapNote()">Save &amp; Sign Clinical Note</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 5: CPOE PRESCRIBING & ALLERGY GATE    -->
+        <!-- ========================================== -->
+        <section id="view-prescription" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Computerized Physician Order Entry (CPOE) Prescribing</h2>
+              <p class="view-subheading">Integrated 14-rule safety interlock intercepting historical allergy failure modes.</p>
+            </div>
+            <span class="badge badge-danger">Patient Allergen: Penicillin (Anaphylaxis)</span>
+          </div>
+
+          <!-- Patient Safety Context Strip -->
+          <div class="patient-active-banner">
+            <div class="patient-identity">
+              <div>
+                <span class="patient-name" id="rxPatientName">Rajesh Kumar</span>
+                <span style="font-size:0.75rem; color:var(--color-text-muted); margin-left:0.5rem;">UHID: <strong id="rxPatientUhid">AH-2026-0982</strong></span>
+              </div>
+            </div>
+            <div>
+              <span class="badge badge-danger" id="rxPatientAllergyBadge">VERIFIED FATAL ALLERGY: PENICILLIN</span>
+              <button class="btn btn-outline-danger btn-sm" onclick="triggerAllergyConflict()" style="margin-left:0.5rem;">
+                Test Prescribing Amoxicillin (Allergy Hazard)
+              </button>
+            </div>
+          </div>
+
+          <!-- Interactive Safety Status Banner -->
+          <div id="rxSafetyStatusBanner" class="alert-banner alert-banner-info">
+            <div>
+              <div class="alert-banner-title">Prescription Safety Engine Status: Ready</div>
+              <div>Select formulary drug and dose. Automated cross-referencing will evaluate active patient allergies, Beta-Lactam class cross-sensitivities, and Boundary Value therapeutic limits in real time.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <!-- Prescription Form -->
+            <div class="card" style="flex:1;">
+              <div class="card-title" style="margin-bottom:0.75rem;">Electronic Prescription Entry</div>
+
+              <div class="form-group" style="margin-bottom:1rem;">
+                <label for="rxDrugSelect">Medication / Active Substance *</label>
+                <select id="rxDrugSelect" class="form-control">
+                  <option value="Azithromycin 500mg Oral (Macrolide)">Azithromycin 500mg Oral Tablet (Macrolide - Safe for Penicillin Allergy)</option>
+                  <option value="Amoxicillin 500mg IV (Beta-Lactam)">Amoxicillin 500mg IV (Beta-Lactam - ALLERGY CONFLICT!)</option>
+                  <option value="Augmentin 625mg Oral (Beta-Lactam)">Augmentin 625mg Oral Tablet (Amoxicillin/Clavulanate - ALLERGY CONFLICT!)</option>
+                  <option value="Cefazolin 1g IV (Cephalosporin)">Cefazolin 1g IV (Cephalosporin - Class Cross-Reactivity Risk)</option>
+                  <option value="Ciprofloxacin 500mg Oral (Fluoroquinolone)">Ciprofloxacin 500mg Oral Tablet (Fluoroquinolone)</option>
+                  <option value="Paracetamol 500mg Oral">Paracetamol 500mg Oral Tablet (Analgesic)</option>
+                  <option value="Atorvastatin 40mg Oral">Atorvastatin 40mg Oral Tablet (Lipid Lowering)</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="rxDoseInput">Dose per Administration (mg) *</label>
+                  <input type="number" id="rxDoseInput" class="form-control" value="500" min="1" max="5000">
+                  <span id="bvaDosageFeedback" style="font-size:0.725rem; color:var(--color-success); font-weight:600; margin-top:0.2rem;">
+                    BVA Verified: Therapeutic window valid (125 mg to 1000 mg).
+                  </span>
+                </div>
+                <div class="form-group">
+                  <label for="rxFrequencySelect">Dosing Frequency *</label>
+                  <select id="rxFrequencySelect" class="form-control">
+                    <option value="Once Daily (OD)">Once Daily (OD)</option>
+                    <option value="Twice Daily (BD)">Twice Daily (BD)</option>
+                    <option value="Three Times Daily (TDS)">Three Times Daily (TDS)</option>
+                    <option value="Stat / Single Dose">Stat (Emergency Single Dose)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="rxDurationInput">Duration (Days) *</label>
+                  <input type="number" id="rxDurationInput" class="form-control" value="5" min="1" max="90">
+                </div>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1rem;">
+                <button class="btn btn-secondary" onclick="triggerAllergyConflict()">Simulate Allergy Hazard</button>
+                <button class="btn btn-primary" id="rxSubmitBtn" onclick="signPrescription()">Sign &amp; Authorize E-Prescription</button>
+              </div>
+            </div>
+
+            <!-- Active Inpatient Medication Orders -->
+            <div class="card" style="flex:1;">
+              <div class="card-title" style="margin-bottom:0.75rem;">Active Authorized Medications (Rajesh Kumar)</div>
+              <div class="table-container">
+                <table class="ui-table">
+                  <thead>
+                    <tr><th>Rx ID</th><th>Drug</th><th>Dose</th><th>Freq</th><th>Dur</th><th>Status</th><th>Prescriber</th></tr>
+                  </thead>
+                  <tbody id="activePrescriptionsTable">
+                    <tr>
+                      <td><strong>RX-2026-7841</strong></td>
+                      <td>Azithromycin 500mg Oral</td>
+                      <td>500 mg</td>
+                      <td>Once Daily</td>
+                      <td>5 Days</td>
+                      <td><span class="badge badge-success">Active / Signed</span></td>
+                      <td>Dr. Priya Sharma</td>
+                    </tr>
+                    <tr>
+                      <td><strong>RX-2026-7102</strong></td>
+                      <td>Atorvastatin 40mg Oral</td>
+                      <td>40 mg</td>
+                      <td>Nightly</td>
+                      <td>30 Days</td>
+                      <td><span class="badge badge-success">Active / Signed</span></td>
+                      <td>Dr. Priya Sharma</td>
+                    </tr>
+                    <tr>
+                      <td><strong>RX-2026-6990</strong></td>
+                      <td>Aspirin 75mg Oral</td>
+                      <td>75 mg</td>
+                      <td>Once Daily</td>
+                      <td>30 Days</td>
+                      <td><span class="badge badge-success">Active / Signed</span></td>
+                      <td>Dr. Priya Sharma</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 6: INPATIENT BED CENSUS               -->
+        <!-- ========================================== -->
+        <section id="view-ipd" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Inpatient Bed Census &amp; Ward Occupancy</h2>
+              <p class="view-subheading">Real-time bed tracking across hospital wards to prevent double allocations.</p>
+            </div>
+          </div>
+
+          <div class="grid-cards">
+            <div class="metric-card"><div class="metric-label">Total Ward Beds</div><div class="metric-val">140</div><div class="metric-detail">Across 4 hospital wings</div></div>
+            <div class="metric-card"><div class="metric-label">Occupied Beds</div><div class="metric-val" style="color:var(--color-primary);">112</div><div class="metric-detail">80.0% Current Occupancy</div></div>
+            <div class="metric-card"><div class="metric-label">Available Beds</div><div class="metric-val" style="color:var(--color-success);">22</div><div class="metric-detail">Ready for immediate admission</div></div>
+            <div class="metric-card"><div class="metric-label">Sanitization / Maintenance</div><div class="metric-val" style="color:var(--color-warning);">6</div><div class="metric-detail">Housekeeping turnover</div></div>
+          </div>
+
+          <div class="card">
+            <div class="card-title" style="margin-bottom:0.75rem;">Intensive Care Unit (ICU) Live Bed Grid</div>
+            <div class="table-container">
+              <table class="ui-table">
+                <thead>
+                  <tr><th>Bed #</th><th>Unit</th><th>Patient Name</th><th>UHID</th><th>Admitted Date</th><th>Attending Specialist</th><th>Bed Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>ICU-01</strong></td><td>Intensive Care</td><td>Kishore Varma</td><td>AH-2026-0112</td><td>2026-10-01</td><td>Dr. Priya Sharma</td><td><span class="badge badge-danger">Occupied (Critical)</span></td></tr>
+                  <tr><td><strong>ICU-02</strong></td><td>Intensive Care</td><td>Fatima Sheikh</td><td>AH-2026-0814</td><td>2026-10-01</td><td>Dr. Suresh Deshmukh</td><td><span class="badge badge-danger">Occupied (Ventilated)</span></td></tr>
+                  <tr><td><strong>ICU-03</strong></td><td>Intensive Care</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="badge badge-warning">Under Housekeeping</span></td></tr>
+                  <tr><td><strong>ICU-04</strong></td><td>Intensive Care</td><td>Rajesh Kumar</td><td>AH-2026-0982</td><td>2026-10-02</td><td>Dr. Priya Sharma</td><td><span class="badge badge-danger">Occupied (Monitoring)</span></td></tr>
+                  <tr><td><strong>ICU-05</strong></td><td>Intensive Care</td><td>-</td><td>-</td><td>-</td><td>-</td><td><span class="badge badge-success">Available for Triage</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 7: LABORATORY (LIS)                   -->
+        <!-- ========================================== -->
+        <section id="view-lab" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Laboratory Information System (LIS)</h2>
+              <p class="view-subheading">Diagnostic test accessioning, reference range validation, and panic value escalation.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title" style="margin-bottom:0.75rem;">Laboratory Orders &amp; Panic Value Notifications</div>
+            <div class="table-container">
+              <table class="ui-table">
+                <thead>
+                  <tr><th>Order ID</th><th>Patient UHID</th><th>Test Name</th><th>Result</th><th>Reference Range</th><th>Clinical Flag</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>LAB-9012</strong></td>
+                    <td>AH-2026-0982 (Rajesh Kumar)</td>
+                    <td>High-Sensitivity Troponin I</td>
+                    <td><strong>184.2 ng/L</strong></td>
+                    <td>&lt; 14.0 ng/L</td>
+                    <td><span class="badge badge-danger">PANIC VALUE: Acute Myocardial Injury</span></td>
+                    <td><span class="badge badge-success">Verified &amp; Reported</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>LAB-9013</strong></td>
+                    <td>AH-2026-0982 (Rajesh Kumar)</td>
+                    <td>Serum Potassium (K+)</td>
+                    <td><strong>4.1 mEq/L</strong></td>
+                    <td>3.5 - 5.1 mEq/L</td>
+                    <td><span class="badge badge-success">Normal Range</span></td>
+                    <td><span class="badge badge-success">Verified &amp; Reported</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>LAB-8994</strong></td>
+                    <td>AH-2026-1184 (Amit Patel)</td>
+                    <td>Complete Blood Count (WBC)</td>
+                    <td><strong>14.2 x10^3/uL</strong></td>
+                    <td>4.0 - 11.0 x10^3/uL</td>
+                    <td><span class="badge badge-warning">Mild Leukocytosis</span></td>
+                    <td><span class="badge badge-success">Verified &amp; Reported</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 8: PHARMACY DISPENSING                -->
+        <!-- ========================================== -->
+        <section id="view-pharmacy" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Pharmacy Barcode Verification &amp; Dispensing</h2>
+              <p class="view-subheading">Secondary physical safety gate ensuring dispensed medication matches authorized electronic prescription.</p>
+            </div>
+          </div>
+
+          <div class="card" style="max-width:800px;">
+            <div id="pharmacyScanStatus" class="alert-banner alert-banner-info">
+              <div>
+                <div class="alert-banner-title">Awaiting Medication Barcode Scan</div>
+                <div>Scan medication package barcode before issuing to ward nursing staff. System will cross-check batch expiry and drug contraindications.</div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:0.75rem; margin-bottom:1.25rem;">
+              <button class="btn btn-secondary" onclick="scanPharmacyBarcode()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="7" y1="7" x2="7" y2="17"></line><line x1="11" y1="7" x2="11" y2="17"></line><line x1="15" y1="7" x2="15" y2="17"></line></svg>
+                Scan Barcode: Azithromycin 500mg (Batch AZ-9914)
+              </button>
+              <button class="btn btn-primary" id="pharmacyDispenseBtn" disabled onclick="completeDispense()">
+                Complete Dispense &amp; Decrement Stock
+              </button>
+            </div>
+
+            <div class="card-title" style="margin-bottom:0.5rem;">Dispensing Queue (Hospital #01 Dispensary)</div>
+            <div class="table-container">
+              <table class="ui-table">
+                <thead>
+                  <tr><th>Rx ID</th><th>Patient UHID</th><th>Prescribed Medication</th><th>Safety Status</th><th>Verification</th></tr>
+                </thead>
+                <tbody>
+                  <tr id="pharmacyQueueRow1">
+                    <td><strong>RX-2026-7841</strong></td>
+                    <td>AH-2026-0982 (Rajesh Kumar)</td>
+                    <td>Azithromycin 500mg Oral</td>
+                    <td><span class="badge badge-success">Safety Cleared (Macrolide)</span></td>
+                    <td>Awaiting Scan</td>
+                  </tr>
+                  <tr>
+                    <td><strong>RX-2026-7102</strong></td>
+                    <td>AH-2026-0982 (Rajesh Kumar)</td>
+                    <td>Atorvastatin 40mg Oral</td>
+                    <td><span class="badge badge-success">Dispensed &amp; Verified</span></td>
+                    <td>Verified by Rohan Mehta</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 9: DISCHARGE SUMMARY                  -->
+        <!-- ========================================== -->
+        <section id="view-discharge" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Inpatient Discharge Summary Protocol</h2>
+              <p class="view-subheading">Standardized continuity of care documentation preventing post-discharge adverse events.</p>
+            </div>
+          </div>
+
+          <div class="card" style="max-width:900px;">
+            <div class="form-row">
+              <div class="form-group"><label>Patient Name</label><input type="text" class="form-control" value="Rajesh Kumar (AH-2026-0982)" readonly></div>
+              <div class="form-group"><label>Admission Date</label><input type="text" class="form-control" value="2026-10-02 08:30" readonly></div>
+              <div class="form-group"><label>Anticipated Discharge</label><input type="date" class="form-control" value="2026-10-06"></div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:1rem;">
+              <label>Final Discharge Diagnoses</label>
+              <input type="text" class="form-control" value="Acute Coronary Syndrome, Unstable Angina, Essential Hypertension">
+            </div>
+
+            <div class="form-group" style="margin-bottom:1rem;">
+              <label>Hospital Course Summary</label>
+              <textarea class="form-control">Patient admitted with substernal chest pain. Cardiac markers monitored. Managed medically. Hemodynamically stable. Documented severe Penicillin allergy noted on permanent summary card.</textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom:1.25rem;">
+              <label>Reconciled Discharge Medications (Verified Free of Allergens)</label>
+              <textarea class="form-control">1. Azithromycin 500mg OD x 3 days. 2. Atorvastatin 40mg OD at night. 3. Aspirin 75mg OD post-meals. CONTRAINDICATED: Do NOT administer Penicillins or Beta-Lactams.</textarea>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:0.75rem;">
+              <button class="btn btn-secondary" onclick="showToast('Discharge draft saved.')">Save Draft</button>
+              <button class="btn btn-primary" onclick="showToast('Discharge summary signed and locked with SHA-256 audit entry.')">Sign &amp; Generate Patient Summary PDF</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 10: CHAINED AUDIT LEDGER              -->
+        <!-- ========================================== -->
+        <section id="view-audit" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Cryptographically Chained Audit Ledger (SHA-256)</h2>
+              <p class="view-subheading">Append-only Merkle chain providing legal non-repudiation and tamper detection.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="verifyAuditIntegrity()">Verify Cryptographic Chain Integrity</button>
+          </div>
+
+          <div class="alert-banner alert-banner-info">
+            <div>
+              <div class="alert-banner-title">Legal Evidentiary Rule: Zero Silent Record Modification</div>
+              <div>Every patient chart view, prescription order, lab requisition, and override is cryptographically hashed with its preceding log block: <code>Hash(n) = SHA-256(Hash(n-1) + Timestamp + User + Payload)</code>.</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title" style="margin-bottom:0.75rem;">Recent Chained Audit Blocks</div>
+            <div class="table-container">
+              <table class="ui-table" style="font-family:var(--font-mono); font-size:0.75rem;">
+                <thead>
+                  <tr><th>Block #</th><th>UTC Timestamp</th><th>User / Role</th><th>Action Category</th><th>Target UHID</th><th>Current SHA-256 Hash</th><th>Previous Hash</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#42912</td>
+                    <td>2026-10-02 10:14:22</td>
+                    <td>Dr. Priya Sharma (MD)</td>
+                    <td><span class="badge badge-danger">SAFETY_INTERLOCK_HARD_STOP</span></td>
+                    <td>AH-2026-0982</td>
+                    <td><code>9f83c18b...e4a2</code></td>
+                    <td><code>7d20aa19...b184</code></td>
+                  </tr>
+                  <tr>
+                    <td>#42911</td>
+                    <td>2026-10-02 09:30:14</td>
+                    <td>Dr. Priya Sharma (MD)</td>
+                    <td><span class="badge badge-success">RX_ISSUED_EVENT</span></td>
+                    <td>AH-2026-0982</td>
+                    <td><code>7d20aa19...b184</code></td>
+                    <td><code>33c914e0...88ab</code></td>
+                  </tr>
+                  <tr>
+                    <td>#42910</td>
+                    <td>2026-10-02 08:35:01</td>
+                    <td>Nurse Anjali Patil</td>
+                    <td><span class="badge badge-neutral">EMERGENCY_TRIAGE_VITALS</span></td>
+                    <td>AH-2026-0982</td>
+                    <td><code>33c914e0...88ab</code></td>
+                    <td><code>12af0092...5512</code></td>
+                  </tr>
+                  <tr>
+                    <td>#42909</td>
+                    <td>2026-10-02 08:31:18</td>
+                    <td>Nurse Anjali Patil</td>
+                    <td><span class="badge badge-neutral">CHART_ACCESSED</span></td>
+                    <td>AH-2026-0982</td>
+                    <td><code>12af0092...5512</code></td>
+                    <td><code>009c8812...3319</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 11: LEGACY MIGRATION & QUARANTINE     -->
+        <!-- ========================================== -->
+        <section id="view-migration" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Legacy Data Migration &amp; Quarantine Workspace</h2>
+              <p class="view-subheading">Cleansing and reconciliation for 2,400,000 legacy records across 27 healthcare facilities.</p>
+            </div>
+          </div>
+
+          <div class="grid-cards">
+            <div class="metric-card"><div class="metric-label">Total Legacy Records</div><div class="metric-val">2,400,000</div><div class="metric-detail">2 FoxPro, 3 Excel, 1 Paper site</div></div>
+            <div class="metric-card"><div class="metric-label">Clean Ingested (93%)</div><div class="metric-val" style="color:var(--color-success);">2,232,000</div><div class="metric-detail">Validated &amp; loaded into live tables</div></div>
+            <div class="metric-card"><div class="metric-label">Quarantine Isolated (7%)</div><div class="metric-val" style="color:var(--color-danger);">168,000</div><div class="metric-detail">Zero unverified rows in live tables</div></div>
+            <div class="metric-card"><div class="metric-label">Reconciled to Date</div><div class="metric-val">12,410</div><div class="metric-detail">Verified by Medical Custodians</div></div>
+          </div>
+
+          <div class="card">
+            <div class="card-title" style="margin-bottom:0.75rem;">Quarantine Review Queue (168,000 Problematic Records)</div>
+            <div class="table-container">
+              <table class="ui-table">
+                <thead>
+                  <tr><th>Quarantine ID</th><th>Source System</th><th>Legacy ID</th><th>Patient Name</th><th>Error Classification</th><th>Raw Payload Issue</th><th>Actions</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Q-98214</strong></td>
+                    <td>FoxPro Hosp #01</td>
+                    <td>PAT-00142</td>
+                    <td>Suresh G. Patil</td>
+                    <td><span class="badge badge-danger">ERR_DATE_MALFORMED</span></td>
+                    <td>DOB stored as two-digit year <code>12/04/85</code></td>
+                    <td><button class="btn btn-secondary btn-sm" onclick="openReconciliationModal('Q-98214', 'Suresh G. Patil', 'PAT-00142', 'ERR_DATE_MALFORMED', '1985-04-12')">Reconcile Date</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Q-98215</strong></td>
+                    <td>Excel Clinic #03</td>
+                    <td>2021-001</td>
+                    <td>Ramesh K. More</td>
+                    <td><span class="badge badge-warning">ERR_ID_COLLISION</span></td>
+                    <td>Serial reset collision with Hosp #02 PAT-00001</td>
+                    <td><button class="btn btn-secondary btn-sm" onclick="openReconciliationModal('Q-98215', 'Ramesh K. More', '2021-001', 'ERR_ID_COLLISION', 'AH-CL03-2021-001')">Resolve Collision</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Q-98216</strong></td>
+                    <td>FoxPro Hosp #02</td>
+                    <td>PAT-09112</td>
+                    <td>Deepak Joshi</td>
+                    <td><span class="badge badge-danger">ERR_DATE_MALFORMED</span></td>
+                    <td>Placeholder birthdate <code>00/00/0000</code></td>
+                    <td><button class="btn btn-secondary btn-sm" onclick="openReconciliationModal('Q-98216', 'Deepak Joshi', 'PAT-09112', 'ERR_DATE_MALFORMED', '1974-06-15')">Reconcile Date</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Q-98217</strong></td>
+                    <td>Excel Clinic #04</td>
+                    <td>ROW-44195</td>
+                    <td>Sunil Verma</td>
+                    <td><span class="badge badge-warning">ERR_DATE_MALFORMED</span></td>
+                    <td>Excel numeric day offset <code>44195</code></td>
+                    <td><button class="btn btn-secondary btn-sm" onclick="openReconciliationModal('Q-98217', 'Sunil Verma', 'ROW-44195', 'ERR_DATE_MALFORMED', '2020-12-30')">Convert Serial</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 12: CLINICAL RISK & SAFETY CENTER     -->
+        <!-- ========================================== -->
+        <section id="view-risk-center" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Clinical Risk Management &amp; RMMM Matrix</h2>
+              <p class="view-subheading">Formal 5x5 Probability-Impact matrix with dedicated RMMM plans for top clinical hazards.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title" style="margin-bottom:0.75rem;">Top 3 Project Risks &amp; RMMM Mitigation Plans</div>
+            <div class="table-container">
+              <table class="ui-table">
+                <thead>
+                  <tr><th>Risk ID</th><th>Risk Description</th><th>Prob (1-5)</th><th>Impact (1-5)</th><th>Exposure</th><th>Mitigation &amp; Management Plan (RMMM)</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>R-01</strong></td>
+                    <td>Fatal Prescribing Allergy Incident</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td><span class="badge badge-danger">20 (Critical)</span></td>
+                    <td>Mandatory allergy check gate; 14-rule decision table; automated Hard Stop on Anaphylaxis; persistent red banners.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>R-02</strong></td>
+                    <td>Legacy Migration Data Corruption</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td><span class="badge badge-danger">20 (Critical)</span></td>
+                    <td>12-stage ETL; 168k records isolated to quarantine schema; double-blind paper transcription; scripted rollback in 24 min.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>R-03</strong></td>
+                    <td>Audit Tampering / Legal Failure</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td><span class="badge badge-warning">15 (High)</span></td>
+                    <td>Append-only cryptographically chained SHA-256 ledger; write-once optical media archival; non-repudiation logging.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 13: USER ACCOUNT PROFILE              -->
+        <!-- ========================================== -->
+        <section id="view-account" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">User Account Profile &amp; Clinical Credentials</h2>
+              <p class="view-subheading">Authenticated clinician identity, regulatory license verification, and session governance.</p>
+            </div>
+            <button class="btn btn-outline-danger btn-sm" onclick="userLogout()">Sign Out of MediTrack</button>
+          </div>
+
+          <div class="form-row">
+            <div class="card" style="flex:1;">
+              <div class="card-title" style="margin-bottom:0.75rem;">Clinical Identity &amp; Licensure</div>
+              <div class="table-container">
+                <table class="ui-table">
+                  <tbody>
+                    <tr><td><strong>Full Legal Name</strong></td><td id="acctName">Dr. Priya Sharma</td></tr>
+                    <tr><td><strong>Assigned Role</strong></td><td id="acctRole">Attending Physician</td></tr>
+                    <tr><td><strong>State Medical Council License</strong></td><td><code id="acctLicense">MH-MED-2018-0914</code> (Verified Active)</td></tr>
+                    <tr><td><strong>Clinical Department</strong></td><td id="acctDept">Cardiology &amp; Emergency Medicine</td></tr>
+                    <tr><td><strong>Primary Healthcare Facility</strong></td><td id="acctFacility">Hospital #01 (Mumbai Central Hub)</td></tr>
+                    <tr><td><strong>Staff Credential Badge ID</strong></td><td><code>STAFF-9021-CARDIOLOGY</code></td></tr>
+                    <tr><td><strong>Current Shift Status</strong></td><td><span class="badge badge-success">Active Duty (08:00 - 16:00 IST)</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card" style="flex:1;">
+              <div class="card-title" style="margin-bottom:0.75rem;">Security Credentials &amp; Session Tokens</div>
+              <div class="table-container">
+                <table class="ui-table">
+                  <tbody>
+                    <tr><td><strong>Authentication Protocol</strong></td><td>OAuth 2.0 / OpenID Connect with PKCE</td></tr>
+                    <tr><td><strong>Multi-Factor Authentication (MFA)</strong></td><td><span class="badge badge-success">Enforced: FIDO2 Hardware Key</span></td></tr>
+                    <tr><td><strong>Current Session Token</strong></td><td><code id="acctToken">JWT-SEC-9982410-EXP15M</code></td></tr>
+                    <tr><td><strong>Session Idle Timeout</strong></td><td>5 Minutes (Automatic Terminal Lock)</td></tr>
+                    <tr><td><strong>Prescribing Authorization</strong></td><td><span class="badge badge-success">Level 4: Full Formulary CPOE</span></td></tr>
+                    <tr><td><strong>Audit Attribution</strong></td><td>Cryptographically chained to SHA-256 blocks</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style="margin-top:1rem;">
+                <label style="font-size:0.75rem; font-weight:600; color:var(--color-text-muted);">Switch Simulation User Role:</label>
+                <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.35rem;">
+                  <button class="btn btn-secondary btn-sm" onclick="loginAs('doctor')">Attending Doctor</button>
+                  <button class="btn btn-secondary btn-sm" onclick="loginAs('nurse')">Staff Nurse</button>
+                  <button class="btn btn-secondary btn-sm" onclick="loginAs('pharmacist')">Chief Pharmacist</button>
+                  <button class="btn btn-secondary btn-sm" onclick="loginAs('admin')">Chief Medical Officer</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 14: CASE STUDY DOCUMENTS HUB          -->
+        <!-- ========================================== -->
+        <section id="view-docs" class="content-view">
+          <div class="card-header-bar">
+            <div>
+              <h2 class="view-heading">Engineering Deliverables &amp; Case Study Documents Hub</h2>
+              <p class="view-subheading">Complete academic documentation matching every deliverable from the faculty problem statement.</p>
+            </div>
+          </div>
+
+          <!-- Document Tabs Navigation -->
+          <div class="doc-tabs-bar">
+            <button class="doc-tab-btn active" data-doc="srs" onclick="showDoc('srs')">1. IEEE 830 SRS</button>
+            <button class="doc-tab-btn" data-doc="uml" onclick="showDoc('uml')">2. UML Package</button>
+            <button class="doc-tab-btn" data-doc="cocomo" onclick="showDoc('cocomo')">3. COCOMO &amp; Brooks</button>
+            <button class="doc-tab-btn" data-doc="project" onclick="showDoc('project')">4. Project Plan (WBS/Gantt)</button>
+            <button class="doc-tab-btn" data-doc="testing" onclick="showDoc('testing')">5. Test Plan &amp; Evidence</button>
+            <button class="doc-tab-btn" data-doc="migration" onclick="showDoc('migration')">6. Legacy Migration</button>
+            <button class="doc-tab-btn" data-doc="devops" onclick="showDoc('devops')">7. DevOps &amp; Safety Gate</button>
+            <button class="doc-tab-btn" data-doc="privacy" onclick="showDoc('privacy')">8. Privacy Policy (DPDPA)</button>
+            <button class="doc-tab-btn" data-doc="terms" onclick="showDoc('terms')">9. Terms &amp; Conditions</button>
+          </div>
+
+          <!-- Document Article 1: SRS -->
+          <article class="doc-article doc-body-container" id="doc-srs">
+            <h2>IEEE Std 830-1998 Software Requirements Specification (SRS)</h2>
+            <p><strong>System Name:</strong> MediTrack Enterprise EMR | <strong>Organization:</strong> Aarogya Healthcare (27 Facilities)</p>
+            <h3>12 Primary Functional Requirements (FRs):</h3>
+            <ol>
+              <li><strong>FR-01 (Centralized EMPI):</strong> Centralized biometric and demographic search with unique UHID assignment across all 27 facilities.</li>
+              <li><strong>FR-02 (Longitudinal History):</strong> Consolidated encounter timeline replacing physical paper transit folders.</li>
+              <li><strong>FR-03 (Mandatory Allergy Recording):</strong> Direct preventative requirement for the 310 historical prescribing incidents.</li>
+              <li><strong>FR-04 (Outpatient SOAP Notes):</strong> Signed electronic encounter notes with immutable audit addendums.</li>
+              <li><strong>FR-05 (Inpatient Bed Census):</strong> Ward allocation, transfer workflows, and bed status synchronization.</li>
+              <li><strong>FR-06 (CPOE Prescribing):</strong> Structured electronic prescription generation with standardized formulary lookups.</li>
+              <li><strong>FR-07 (Drug-Allergy Safety Check):</strong> Automated real-time checking with Hard Stop interlock on severe contraindications.</li>
+              <li><strong>FR-08 (Laboratory LIS Sync):</strong> Diagnostic order entry, specimen barcode tracking, and panic value escalation.</li>
+              <li><strong>FR-09 (Pharmacy Barcode Dispensing):</strong> Secondary physical barcode verification against authorized electronic prescriptions.</li>
+              <li><strong>FR-10 (Discharge Summary):</strong> Structured discharge summaries with reconciled medication instructions.</li>
+              <li><strong>FR-11 (Immutable Audit Trail):</strong> Chained SHA-256 Merkle logging for all read, write, and override events.</li>
+              <li><strong>FR-12 (Legacy Data Quarantine):</strong> 12-stage ETL with automated isolation of the 168,000 (7%) problematic legacy records.</li>
+            </ol>
+            <h3>8 Measurable Non-Functional Requirements (NFRs):</h3>
+            <ul>
+              <li><strong>NFR-01 (Security):</strong> TLS 1.3 in transit, AES-256 at rest, OAuth2 / JWT authentication with mandatory MFA.</li>
+              <li><strong>NFR-02 (Auditability):</strong> 100% of mutations cryptographically logged with zero un-hashed database writes.</li>
+              <li><strong>NFR-03 (Availability):</strong> Greater than or equal to 99.857% continuous availability over rolling 12 months.</li>
+              <li><strong>NFR-04 (Usability):</strong> 95% of nurse cohort achieves operational competency within 20 minutes of instruction.</li>
+              <li><strong>NFR-05 (Reliability):</strong> MTBF greater than or equal to 1,400 hours continuous operation without crash.</li>
+              <li><strong>NFR-06 (Performance):</strong> Patient search latency less than or equal to 1.5 seconds under 1,200 concurrent users.</li>
+              <li><strong>NFR-07 (Maintainability):</strong> MTTR less than or equal to 2.0 hours with decoupled asynchronous billing adapter.</li>
+              <li><strong>NFR-08 (Data Integrity):</strong> Defect Removal Efficiency (DRE) greater than or equal to 92% prior to go-live.</li>
+            </ul>
+          </article>
+
+          <!-- Document Article 2: UML -->
+          <article class="doc-article doc-body-container" id="doc-uml" style="display:none;">
+            <h2>Complete UML Package &amp; Software Architecture</h2>
+            <p>Full suite of structural, behavioral, and architectural diagrams developed for MediTrack.</p>
+            <h3>1. Use Case Diagram (12 Core Scenarios)</h3>
+            <p>Actors: Attending Doctor, Staff Nurse, Pharmacist, Lab Tech, Medical Records Custodian, Administrator, External Billing Adapter.</p>
+            <h3>2. Sequence Diagram: Prescribe Drug with Allergy Check</h3>
+            <p>Doctor accesses CPOE -&gt; Enters drug &amp; dosage -&gt; CPOE queries DrugSafetyEngine -&gt; DrugSafetyEngine checks patient allergy history -&gt; If Fatal, returns HARD STOP modal -&gt; If Safe, issues Rx and emits PrescriptionIssuedEvent to message broker.</p>
+            <h3>3. Software Architecture: Prescription &amp; Billing Decoupling</h3>
+            <p>Clinical CPOE operates on an autonomous Port-and-Adapter architecture. When a prescription is signed, the CPOE service persists the clinical record and emits an asynchronous <code>PrescriptionIssuedEvent</code> to RabbitMQ/Kafka. The detached <code>BillingAdapter</code> consumes the event to charge patient accounts without holding clinical prescribing hostage to billing downtime.</p>
+          </article>
+
+          <!-- Document Article 3: COCOMO -->
+          <article class="doc-article doc-body-container" id="doc-cocomo" style="display:none;">
+            <h2>Software Cost Estimation (Basic COCOMO) &amp; Brooks's Law</h2>
+            <p><strong>Parameters:</strong> Size = 46 KLOC | Team = Medium-Experienced | Mode = Semi-Detached</p>
+            <h3>Mathematical Calculations:</h3>
+            <ul>
+              <li>Effort: <code>E = 3.0 * (46)^1.12 = 3.0 * 72.825 = 218.48 Person-Months (PM)</code></li>
+              <li>Duration: <code>T_dev = 2.5 * (218.48)^0.35 = 2.5 * 6.5886 = 16.47 Months</code></li>
+              <li>Average Staffing: <code>SS = 218.48 / 16.47 = 13.26 (~13 to 14 FTE Engineers)</code></li>
+              <li><strong>CFO Ceiling Defense:</strong> Calculated 16.47 Months is less than the mandated 18.00 Months ceiling (1.53-Month buffer).</li>
+            </ul>
+            <h3>Brooks's Law Sanity Check:</h3>
+            <p>Adding developers to a delayed clinical milestone increases communication overhead quadratically: <code>C = n(n-1)/2</code>. A 13-person team has 78 channels; adding 7 developers expands to 190 channels (+143.6% coordination drag), exacerbating schedule collapse.</p>
+            <h3>What COCOMO Fails to Capture:</h3>
+            <p>1. Legacy ETL migration of 2.4 million rows with 168k dirty records. 2. Multi-site nurse training across 27 facilities. 3. Formal legal medical software certification. 4. Clinic local network hardware upgrades.</p>
+          </article>
+
+          <!-- Document Article 4: Project Plan -->
+          <article class="doc-article doc-body-container" id="doc-project" style="display:none;">
+            <h2>Project Plan: 4-Level WBS, Critical Path &amp; Gantt Chart</h2>
+            <h3>Critical Path Analysis (CPM):</h3>
+            <p>The 13-activity critical path (A01 -&gt; A02 -&gt; A03 -&gt; A04 -&gt; A05 -&gt; A09 -&gt; A10 -&gt; A18 -&gt; A19 -&gt; A21 -&gt; A22 -&gt; A23 -&gt; A24) totals <strong>16.50 Months</strong>, perfectly confirming the COCOMO estimate of 16.47 Months and complying with the CFO 18-month ceiling.</p>
+            <h3>Resource Histogram:</h3>
+            <p>Staffing profile averages 13.3 FTEs, peaking at 18 specialists during the construction phase (Month 07-09).</p>
+          </article>
+
+          <!-- Document Article 5: Test Plan -->
+          <article class="doc-article doc-body-container" id="doc-testing" style="display:none;">
+            <h2>Test Plan &amp; Evidence: 310 Allergy Incidents, BVA &amp; DRE</h2>
+            <h3>Evidence Covering the 310 Historical Prescribing Incidents:</h3>
+            <p>System enforces global allergy synchronization, mandatory allergy recording before prescribing, brand-to-generic class resolution, and an automated Hard Stop on fatal allergens.</p>
+            <h3>Boundary Value Analysis (BVA) for Dosage Fields:</h3>
+            <p>Evaluates Amoxicillin 500mg adult dosage: Min-1 (124mg: Reject), Min (125mg: Accept), Max (1000mg: Accept), Max+1 (1001mg: Hard Stop toxic overdose).</p>
+            <h3>Defect Removal Efficiency (DRE) Calculation:</h3>
+            <p><code>DRE = E / (E + D) = 184 / (184 + 12) = 184 / 196 = 93.88%</code> (Exceeds the faculty requirement of &gt;= 92.0%).</p>
+            <h3>System Availability Calculation:</h3>
+            <p><code>A = MTBF / (MTBF + MTTR) = 1,400 / (1,400 + 2) = 99.8573% (~99.857%)</code>. Allowable downtime = 12.50 hours/year.</p>
+          </article>
+
+          <!-- Document Article 6: Legacy Migration -->
+          <article class="doc-article doc-body-container" id="doc-migration" style="display:none;">
+            <h2>Legacy Data Migration &amp; Quarantine Strategy</h2>
+            <p>Mathematical baseline: 2,400,000 legacy rows. 7% problematic records = 168,000 rows. 93% clean = 2,232,000 rows.</p>
+            <p>12-Stage ETL: Data profiling, extraction, transformation, validation, duplicate detection, date normalization, error quarantine, reconciliation, trial migration, UAT validation, final cutover, rollback runbook (executed in 24 minutes, within 2-hour MTTR).</p>
+          </article>
+
+          <!-- Document Article 7: DevOps -->
+          <article class="doc-article doc-body-container" id="doc-devops" style="display:none;">
+            <h2>DevOps &amp; Staged Clinical Safety Gate</h2>
+            <p>11-Stage CI/CD delivery pipeline featuring a dedicated automated Staged Clinical Safety Gate (Stage 7) executing the 310 allergy incident regression suite.</p>
+            <h3>What Must Never Be Automated Away:</h3>
+            <p>1. Clinical override authorizations. 2. Production hospital deployment sign-off. 3. Patient identity duplicate merging. 4. Severe clinical adverse event review. 5. Medical-legal compliance attestations. 6. Quarantine record disposition. 7. Emergency database rollback authorization. 8. Panic lab value clinical handover.</p>
+          </article>
+
+          <!-- Document Article 8: Privacy -->
+          <article class="doc-article doc-body-container" id="doc-privacy" style="display:none;">
+            <h2>Privacy Policy (Digital Personal Data Protection Act 2023)</h2>
+            <p>Full statutory healthcare privacy policy governing all Protected Health Information (PHI) across 27 healthcare facilities under the DPDPA 2023 and MoHFW EHR Standards. Enforces AES-256 encryption at rest, TLS 1.3 in transit, and 10-year immutable optical WORM archival.</p>
+          </article>
+
+          <!-- Document Article 9: Terms -->
+          <article class="doc-article doc-body-container" id="doc-terms" style="display:none;">
+            <h2>Terms and Conditions of Clinical Use</h2>
+            <p>Binding operational agreement governing all authorized clinicians. Prohibits silent record tampering, mandates append-only signed addendums, requires clinical override justifications, and asserts legal admissibility under the Indian Evidence Act.</p>
+          </article>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- VIEW 15: LOGIN & SWITCH USER               -->
+        <!-- ========================================== -->
+        <section id="view-login" class="content-view">
+          <div style="max-width:480px; margin:3rem auto; background:#ffffff; border:1px solid var(--color-border); border-radius:var(--radius-sm); padding:2rem; box-shadow:0 4px 16px rgba(0,0,0,0.06);">
+            <div style="text-align:center; margin-bottom:1.5rem;">
+              <div class="brand-mark" style="margin:0 auto 0.75rem auto; width:44px; height:44px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
+              <h2 style="font-size:1.35rem; color:var(--color-primary); margin-bottom:0.25rem;">MediTrack Authentication</h2>
+              <p style="font-size:0.8rem; color:var(--color-text-muted);">Aarogya Healthcare Clinical Information Network</p>
+            </div>
+
+            <div style="margin-bottom:1.25rem;">
+              <label style="font-size:0.775rem; font-weight:600; display:block; margin-bottom:0.35rem;">Select Clinical Role for Fast Demonstration:</label>
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <button class="btn btn-secondary" onclick="loginAs('doctor')" style="justify-content:flex-start; text-align:left;">
+                  <div><strong>Dr. Priya Sharma</strong><br><span style="font-size:0.72rem; color:var(--color-text-muted);">Attending Physician (Cardiology)</span></div>
+                </button>
+                <button class="btn btn-secondary" onclick="loginAs('nurse')" style="justify-content:flex-start; text-align:left;">
+                  <div><strong>Nurse Anjali Patil</strong><br><span style="font-size:0.72rem; color:var(--color-text-muted);">Staff Nurse (Emergency Triage)</span></div>
+                </button>
+                <button class="btn btn-secondary" onclick="loginAs('pharmacist')" style="justify-content:flex-start; text-align:left;">
+                  <div><strong>Rohan Mehta</strong><br><span style="font-size:0.72rem; color:var(--color-text-muted);">Chief Pharmacist (Central Dispensary)</span></div>
+                </button>
+                <button class="btn btn-secondary" onclick="loginAs('admin')" style="justify-content:flex-start; text-align:left;">
+                  <div><strong>Dr. Suresh Deshmukh</strong><br><span style="font-size:0.72rem; color:var(--color-text-muted);">Chief Medical Officer (Quality Governance)</span></div>
+                </button>
+              </div>
+            </div>
+
+            <p style="font-size:0.7rem; color:var(--color-text-light); text-align:center; margin-bottom:0;">
+              Zero-Trust Identity: Authenticated sessions cryptographically tied to SHA-256 audit ledger.
+            </p>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ALLERGY HARD STOP MODAL -->
+  <div class="modal-overlay" id="allergyHardStopModal">
+    <div class="modal-window">
+      <div class="modal-header" style="background-color:var(--color-danger-bg); border-bottom-color:var(--color-danger-border);">
+        <div class="modal-title" style="color:var(--color-danger); display:flex; align-items:center; gap:0.5rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+          CRITICAL CLINICAL HARD STOP: FATAL ALLERGY CONTRAINDICATION
+        </div>
+        <button class="modal-close" onclick="closeAllergyModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color:#7f1d1d; font-weight:700; margin-bottom:0.5rem;">
+          Order Intercepted: Prescription for Amoxicillin 500mg IV cannot be issued.
+        </p>
+        <p style="margin-bottom:0.75rem;">
+          <strong>Patient:</strong> Rajesh Kumar (UHID: AH-2026-0982)<br>
+          <strong>Documented Allergen:</strong> Penicillin (Substance Class: Beta-Lactam)<br>
+          <strong>Recorded Reaction:</strong> Severe Anaphylactic Shock &amp; Laryngeal Edema (Clinic #14, 2025)<br>
+          <strong>Clinical Risk:</strong> High risk of fatal cardiovascular collapse and acute respiratory failure.
+        </p>
+        <div class="alert-banner alert-banner-warning" style="margin-bottom:0.5rem;">
+          <div>
+            <strong>14-Rule Safety Interlock Policy (Rule R03 &amp; R04):</strong><br>
+            Direct allergen contraindications with historical anaphylaxis <strong>cannot be overridden</strong> through routine software workflows. The order has been hard-blocked.
+          </div>
+        </div>
+        <p style="margin-bottom:0; font-size:0.8rem; color:var(--color-text-muted);">
+          Suggested Action: Apply recommended safe alternative <strong>Azithromycin 500mg Oral Tablet</strong> (Macrolide class possesses 0% Beta-Lactam ring cross-reactivity).
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeAllergyModal()">Cancel Order</button>
+        <button class="btn btn-primary" onclick="applySafeAlternative()">Apply Safe Alternative (Azithromycin 500mg)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIT CHAIN INTEGRITY MODAL -->
+  <div class="modal-overlay" id="auditVerificationModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title">SHA-256 Merkle Chain Integrity Verification</div>
+        <button class="modal-close" onclick="closeAuditModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="alert-banner alert-banner-success" style="margin-bottom:1rem;">
+          <div>
+            <div class="alert-banner-title">Chain Integrity Confirmed: 100% Cryptographically Intact</div>
+            <div>All 42,912 chained blocks re-hashed from Genesis block. Zero hash breaks, zero silent record modifications, and zero unauthorized mutations detected.</div>
+          </div>
+        </div>
+        <table class="ui-table" style="font-size:0.75rem; font-family:var(--font-mono);">
+          <tbody>
+            <tr><td>Total Verified Blocks</td><td><strong>42,912 Blocks</strong></td></tr>
+            <tr><td>Genesis Block Hash</td><td><code>000000000019d6689c085ae165831e934ff763ae</code></td></tr>
+            <tr><td>Latest Root Merkle Hash</td><td><code>9f83c18b209a8291a12e4a287bf91001ca290119</code></td></tr>
+            <tr><td>Verification Run Duration</td><td><strong>1.14 Seconds</strong></td></tr>
+            <tr><td>Legal Admissibility Status</td><td><strong>Certified Admissible under Indian Evidence Act</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="closeAuditModal()">Close Certificate</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUARANTINE RECONCILIATION MODAL -->
+  <div class="modal-overlay" id="quarantineReconcileModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title">Clinical Quarantine Reconciliation Protocol</div>
+        <button class="modal-close" onclick="closeReconciliationModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom:0.75rem;">
+          <strong>Quarantine Record ID:</strong> <span id="modalQuarantineId">Q-98214</span><br>
+          <strong>Patient:</strong> <span id="modalQuarantineName">Suresh G. Patil</span><br>
+          <strong>Error Code:</strong> <span id="modalQuarantineErr" class="badge badge-danger">ERR_DATE_MALFORMED</span>
+        </p>
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label>Reconciled Value (ISO 8601 YYYY-MM-DD or Valid UHID) *</label>
+          <input type="text" id="modalQuarantineRaw" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Clinical Custodian Reconciliation Notes *</label>
+          <input type="text" class="form-control" value="Verified against original FoxPro paper encounter card archive. Century pivot confirmed 1985.">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeReconciliationModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveReconciledRecord()">Approve &amp; Ingest to Production</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=20261002_02"></script>
+</body>
+</html>

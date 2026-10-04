@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - MediTrack Healthcare Information System</title>
+  <link rel="stylesheet" href="website.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Official Notice Bar -->
+  <div class="gov-banner">
+    <div class="container gov-banner-inner">
+      <span>Aarogya Healthcare Enterprise Clinical Information Systems</span>
+      <span class="gov-tag">Regulatory Standard: DPDPA 2023 / MoHFW EHR Guidelines</span>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-wrapper">
+        <div class="brand-mark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <span class="brand-name">MediTrack</span>
+          <span class="brand-sub">Aarogya Healthcare</span>
+        </div>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">System Overview</a>
+        <a href="index.html#safety">Clinical Safety</a>
+        <a href="index.html#architecture">Architecture</a>
+        <a href="index.html#migration">Migration Strategy</a>
+        <a href="privacy.html" class="active">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="clinical-portal.html" class="btn btn-primary" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;">Clinical Portal</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Privacy Policy Content -->
+  <main class="container legal-layout">
+    <header class="legal-header">
+      <span class="meta-badge">Statutory Data Protection Document</span>
+      <h1>Privacy Policy & Protected Health Information Governance</h1>
+      <p class="legal-meta">Document Reference: AH-SEC-POL-2026-V1.0 | Effective Date: October 2, 2026 | Last Regulatory Audit: Q3 2026</p>
+    </header>
+
+    <div class="legal-body">
+      <section>
+        <h2>1. Statutory Authority and Scope</h2>
+        <p>
+          This Privacy Policy governs the processing, storage, transmission, and access protocols for all Electronic Health Records (EHR) and Protected Health Information (PHI) managed within the MediTrack Electronic Medical Record system operated by Aarogya Healthcare across its 6 tertiary hospitals and 21 outpatient healthcare facilities located in three states.
+        </p>
+        <p>
+          Compliance is maintained under the Digital Personal Data Protection Act (DPDPA 2023), the Clinical Establishments (Registration and Regulation) Act, the Information Technology Act (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information Rules), and the Ministry of Health and Family Welfare (MoHFW) Electronic Health Record Standards for India.
+        </p>
+      </section>
+
+      <section>
+        <h2>2. Categories of Clinical and Personal Data Collected</h2>
+        <p>
+          MediTrack collects and processes only data strictly necessary for direct clinical care, patient safety interlocks, legal medical documentation, and diagnostic accuracy:
+        </p>
+        <ul>
+          <li><strong>Enterprise Master Patient Index (EMPI) Identifiers:</strong> Unique Aarogya Health Identification (UHID), national identification credentials where provided, biometric indexing templates for patient deduplication, and government insurance scheme registrations.</li>
+          <li><strong>Patient Demographics:</strong> Full legal name, date of birth, biological sex, residential postal code, verified emergency contact telephone numbers, and next-of-kin declarations.</li>
+          <li><strong>Critical Safety Data:</strong> Documented substance allergens, chemical class sensitivities (including Beta-Lactam and non-steroidal anti-inflammatory agents), verified adverse drug reaction histories, and explicit No Known Drug Allergies (NKDA) attestations.</li>
+          <li><strong>Longitudinal Clinical Records:</strong> Outpatient Subjective, Objective, Assessment, and Plan (SOAP) clinical encounter notes, inpatient ward admission records, nursing fluid charts, surgical operative reports, and discharge summaries.</li>
+          <li><strong>Diagnostic and Order Data:</strong> Computerized Physician Order Entry (CPOE) electronic prescriptions, laboratory diagnostic orders and numeric test results, radiology diagnostic narrative reports, and dispensing verification timestamps.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. Purpose Limitation and Processing Mandate</h2>
+        <p>
+          Protected Health Information collected by MediTrack is processed strictly under clinical necessity principles:
+        </p>
+        <ol>
+          <li><strong>Immediate Clinical Patient Safety:</strong> Real-time cross-referencing of active e-prescriptions against patient allergy records to prevent severe or fatal drug-allergy interactions across all 27 facilities.</li>
+          <li><strong>Continuity of Multidisciplinary Care:</strong> Enabling treating physicians, ward nurses, and clinical pharmacists to review prior inpatient and outpatient encounters without relying on physical paper transit folders.</li>
+          <li><strong>Statutory Medical Recordkeeping:</strong> Maintaining legally defensible, complete medical records admissible under Indian Evidence Law for clinical audit, medical negligence defense, and statutory health reporting.</li>
+          <li><strong>Prohibition on Commercial Exploitation:</strong> Aarogya Healthcare enforces a strict prohibition against the sale, commercial monetization, marketing exploitation, or unauthorized third-party disclosure of any patient medical or demographic records.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>4. Cryptographic Security and Technical Safeguards</h2>
+        <p>
+          Technical controls within the MediTrack infrastructure are implemented to prevent unauthorized access, tampering, or exfiltration:
+        </p>
+        <ul>
+          <li><strong>Encryption Standards:</strong> Data in transit is protected using Transport Layer Security (TLS 1.3) with mandated forward secrecy ciphers. All persistent database volumes and physical backup media are encrypted at rest using AES-256 bit encryption.</li>
+          <li><strong>Cryptographic Immutability:</strong> In accordance with legal admissibility standards, every record modification, addendum, or clinical override is recorded in an isolated, append-only ledger secured by chained SHA-256 Merkle hashes. Physical deletion or silent modification of historical medical records is structurally prohibited by the database architecture.</li>
+          <li><strong>Role-Based Access Control (RBAC):</strong> Access permissions are enforced at the API gateway and service layer according to the Principle of Least Privilege across 8 defined institutional roles (Attending Physician, Ward Nurse, Clinical Pharmacist, Laboratory Technologist, Medical Records Custodian, Hospital Administrator, Legal Auditor, and System Administrator).</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Legacy Data Quarantine and Data Integrity</h2>
+        <p>
+          During the enterprise consolidation of 2,400,000 legacy records from legacy Microsoft FoxPro databases, unencrypted spreadsheets, and paper registers:
+        </p>
+        <ul>
+          <li>All records flagged with malformed dates or colliding identity numbers (approximately 168,000 records or 7% of total volume) are routed to an isolated quarantine repository (<code>legacy_migration_quarantine</code>).</li>
+          <li>Quarantined records are isolated from active clinical search indices until manual review and reconciliation are completed by a verified Medical Records Custodian.</li>
+          <li>When treating a patient associated with a quarantined legacy record, clinicians are presented with an active warning banner requiring manual confirmation of drug allergies before any prescription can be generated.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. Statutory Record Retention and Archival</h2>
+        <p>
+          In compliance with the Medical Council of India (Professional Conduct, Etiquette and Ethics) Regulations, clinical records are retained for a minimum statutory period of 10 years from the date of the last treatment encounter. Quarantined legacy records and immutable cryptographic audit logs are archived on write-once optical media (WORM) to guarantee non-repudiation throughout the legal limitation period.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Patient Data Rights and Grievance Redressal</h2>
+        <p>
+          Patients treated within the Aarogya Healthcare network maintain the following rights regarding their digital health records:
+        </p>
+        <ul>
+          <li><strong>Right to Summary Access:</strong> Patients or authorized legal guardians may request an authenticated digital or physical copy of their longitudinal discharge summaries and clinical lab histories upon identity verification.</li>
+          <li><strong>Right to Correction via Addendum:</strong> If a patient identifies an inaccuracy in recorded demographic data, corrections are appended with verified supporting documentation while preserving the original historical audit trail.</li>
+          <li><strong>Data Protection Officer (DPO):</strong> Inquiries or formal grievances regarding medical data privacy should be submitted to the Office of Clinical Data Governance, Aarogya Healthcare Central Administrative Office, or via electronic transmission to <code>dataprotection@aarogyahealthcare.org</code>.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>MediTrack Clinical EMR</h4>
+          <p style="color: #94a3b8; font-size: 0.875rem;">
+            Centralized Electronic Medical Record platform for Aarogya Healthcare. Serving 6 tertiary hospitals and 21 outpatient clinics across 3 states with standardized safety interlocks.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Documentation</h4>
+          <ul>
+            <li><a href="index.html#specifications">IEEE 830 Specifications</a></li>
+            <li><a href="index.html#architecture">N-Tier Architecture</a></li>
+            <li><a href="index.html#safety">14-Rule Decision Table</a></li>
+            <li><a href="index.html#migration">12-Stage ETL Migration</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Clinical Portal</h4>
+          <ul>
+            <li><a href="clinical-portal.html">Main Clinical Dashboard</a></li>
+            <li><a href="clinical-portal.html#view-prescription">CPOE E-Prescription</a></li>
+            <li><a href="clinical-portal.html#view-allergy-check">Allergy Interlock Demo</a></li>
+            <li><a href="clinical-portal.html#view-audit">Cryptographic Audit Log</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Governance & Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="index.html#quality">Quality Assurance Metrics</a></li>
+            <li><a href="index.html#governance">Statutory Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Aarogya Healthcare System. All rights reserved. SEPM Academic Deliverable.</span>
+        <span>Standard: IEEE Std 830-1998, ISO/IEC 12207, DPDPA 2023.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
